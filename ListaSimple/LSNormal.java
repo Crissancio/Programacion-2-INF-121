@@ -34,15 +34,6 @@ public class LSNormal extends LSimple {
         p = nuevo;
     }
 
-    void mostrar() {
-        NodoS r = p;
-        while (r != null) {
-            System.out.print(r.getElemento() + " ");
-            r = r.getSig();
-        }
-        System.out.println("");
-    }
-
     void adiFinal(Object elem) {
         NodoS nuevo, r;
         nuevo = new NodoS();
@@ -86,6 +77,15 @@ public class LSNormal extends LSimple {
         }
 
         return dato;
+    }
+
+    void mostrar() {
+        NodoS r = p;
+        while (r != null) {
+            System.out.print(r.getElemento() + " ");
+            r = r.getSig();
+        }
+        System.out.println("");
     }
 
     int nroElem() {
