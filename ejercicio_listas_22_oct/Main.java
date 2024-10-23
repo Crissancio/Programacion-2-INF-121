@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ejercicio_listas;
+package ejercicio_listas_22_oct;
 
 import java.awt.BorderLayout;
 import java.util.Scanner;

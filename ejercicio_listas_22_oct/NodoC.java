@@ -2,33 +2,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ejercicio_listas;
+package ejercicio_listas_22_oct;
 
 /**
  *
  * @author Cristhian1509
  */
-public class NodoV {
-    private Vehiculo v;
-    private NodoV sig;
+public class NodoC {
+    private Conductor c;
+    private NodoC sig;
     
-    NodoV(){
+    NodoC(){
         sig = null;
     }
 
-    public Vehiculo getV() {
-        return v;
+    public Conductor getC() {
+        return c;
     }
 
-    public void setV(Vehiculo v) {
-        this.v = v;
+    public void setC(Conductor c) {
+        this.c = c;
     }
 
-    public NodoV getSig() {
+    public NodoC getSig() {
         return sig;
     }
 
-    public void setSig(NodoV sig) {
+    public void setSig(NodoC sig) {
         this.sig = sig;
     }
 }
