@@ -42,9 +42,18 @@ public class mainEstructuras {
             elem.mostrar();
             listaDocentes.adiFinal(elem);
         }
-        
-        
-        
+
+        CSimple<Docente> colaSDocentes = new CSimple<Docente>(100);
+        cargarDocentesCSimple(rutaDocentes, colaSDocentes);
+        System.out.println("\t\t-->Mostrando los docentes de la Cola<--");
+        CSimple<Docente> auxCS = new CSimple<Docente>(100);
+        while(!colaSDocentes.esVacia()){
+            Docente elem = colaSDocentes.eliminar();
+            elem.mostrar();
+            auxCS.adicionar(elem);
+        }
+        colaSDocentes.vaciar(auxCS);
+
     }
     
     public static void cargarDocentesPila(String ruta, Pila<Docente> p){
@@ -62,6 +71,30 @@ public class mainEstructuras {
                     //(DEBEMOS MANDAR LA RUTA ABSOLUTA DEL ARCHIVO)
                     Docente elem = new Docente(archivo.getAbsolutePath());
                     p.adicionar(elem);
+                }
+            } else {
+                System.out.println("Carpeta sin Archivos");
+            }
+        } else {
+            System.out.println("La ruta no es un directorio");
+        }
+    }
+
+    public static void cargarDocentesCSimple(String ruta, CSimple<Docente> cola){
+        //Carga los archivos de la carpeta
+        File carpeta = new File(ruta);
+        if (carpeta.isDirectory()) {
+            
+            //Obtiene la lista de archivos de la carpeta
+            File[] listaArchivos = carpeta.listFiles();
+            if (listaArchivos != null) {
+                
+                //Recorre la lista de archivos
+                for (File archivo : listaArchivos) {
+                    //Instanciamos un Objecto y utilizamos el constructor por archivo
+                    //(DEBEMOS MANDAR LA RUTA ABSOLUTA DEL ARCHIVO)
+                    Docente elem = new Docente(archivo.getAbsolutePath());
+                    cola.adicionar(elem);
                 }
             } else {
                 System.out.println("Carpeta sin Archivos");
