@@ -53,6 +53,18 @@ public class mainEstructuras {
             auxCS.adicionar(elem);
         }
         colaSDocentes.vaciar(auxCS);
+        
+        CCircular<Docente> colaCDocentes = new CCircular<Docente>(100);
+        cargarDocentesCCircular(rutaDocentes, colaCDocentes);
+        System.out.println("\t\t-->Mostrando los docentes de la Cola<--");
+        CCircular<Docente> auxCC = new CCircular<Docente>(100);
+        while(!colaCDocentes.esVacia()){
+            Docente elem = colaCDocentes.eliminar();
+            elem.mostrar();
+            auxCC.adicionar(elem);
+        }
+        colaCDocentes.vaciar(auxCC);
+
 
     }
     
@@ -103,6 +115,30 @@ public class mainEstructuras {
             System.out.println("La ruta no es un directorio");
         }
     }
+
+    public static void cargarDocentesCCircular(String ruta, CCircular<Docente> cola){
+        //Carga los archivos de la carpeta
+        File carpeta = new File(ruta);
+        if (carpeta.isDirectory()) {
+            
+            //Obtiene la lista de archivos de la carpeta
+            File[] listaArchivos = carpeta.listFiles();
+            if (listaArchivos != null) {
+                
+                //Recorre la lista de archivos
+                for (File archivo : listaArchivos) {
+                    //Instanciamos un Objecto y utilizamos el constructor por archivo
+                    //(DEBEMOS MANDAR LA RUTA ABSOLUTA DEL ARCHIVO)
+                    Docente elem = new Docente(archivo.getAbsolutePath());
+                    cola.adicionar(elem);
+                }
+            } else {
+                System.out.println("Carpeta sin Archivos");
+            }
+        } else {
+            System.out.println("La ruta no es un directorio");
+        }
+    }
     
     
     public static void cargarDocentesLista(String ruta, LSimple<Docente> lista){
@@ -128,4 +164,6 @@ public class mainEstructuras {
             System.out.println("La ruta no es un directorio");
         }
     }
+
+   
 }
